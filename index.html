@@ -79,7 +79,7 @@
       <h1>Todo tu pádel, medido y mejorado</h1>
       <p class="lead">Ecosistema integral con marcador inteligente, estadísticas avanzadas, videocorrecciones y conexión social en una única plataforma.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Me%20interesa%20VisionScore%20AI">Únete al piloto</a>
+        <a class="btn primary" href="#contacto">Únete al piloto</a>
         <a class="btn ghost" href="#como-funciona">Ver cómo funciona</a>
       </div>
     </section>
@@ -107,7 +107,7 @@
       <h2>Para clubes</h2>
       <p class="lead">Diferenciación, fidelización, atracción de nuevos jugadores y nuevas vías de ingresos.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Quiero%20VisionScore%20AI%20en%20mi%20club">Solicitar demo</a>
+        <a class="btn primary" href="#contacto">Solicitar demo</a>
       </div>
     </section>
 
@@ -115,13 +115,28 @@
       <h2>Para jugadores</h2>
       <p class="lead">Estadísticas profesionales, autoentrenamiento, comunidad y experiencia social mejorada.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Alta%20jugador%20piloto">Unirme al piloto</a>
+        <a class="btn primary" href="#contacto">Unirme al piloto</a>
       </div>
     </section>
 
     <section id="contacto">
       <h2>Contacto</h2>
-      <p>Escríbenos a <a href="mailto:hola@visionscore.ai">hola@visionscore.ai</a> o visita el <a href="https://github.com/titoih/visionscore" target="_blank">repositorio</a>.</p>
+      <p class="lead">Déjanos tus datos y te escribimos pronto.</p>
+
+      <form id="contact-form" class="card" style="margin-top:20px">
+        <div style="display:grid; gap:14px; max-width:720px">
+          <input type="text" name="name" placeholder="Tu nombre" required style="padding:12px 14px; border-radius:10px; border:1px solid var(--stroke); background:rgba(255,255,255,0.02); color:var(--text)">
+          <input type="email" name="email" placeholder="Tu email" required style="padding:12px 14px; border-radius:10px; border:1px solid var(--stroke); background:rgba(255,255,255,0.02); color:var(--text)">
+          <select name="perfil" style="padding:12px 14px; border-radius:10px; border:1px solid var(--stroke); background:rgba(255,255,255,0.02); color:var(--text)">
+            <option value="Jugador">Jugador</option>
+            <option value="Club">Club</option>
+            <option value="Otro">Otro</option>
+          </select>
+          <textarea name="message" rows="5" placeholder="Tu mensaje" required style="padding:12px 14px; border-radius:10px; border:1px solid var(--stroke); background:rgba(255,255,255,0.02); color:var(--text)"></textarea>
+          <button class="btn primary" type="submit">Enviar</button>
+          <p id="form-status" style="margin:6px 0 0; font-size:14px; color:var(--muted)"></p>
+        </div>
+      </form>
     </section>
   </main>
 
@@ -129,6 +144,46 @@
     <small>© <span id="y"></span> VisionScore AI</small>
   </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+
+    const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+    const ACCESS_KEY = "7b6b2704-aa29-43c7-aa6f-cfa80ac7a6ce";
+
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Enviando…';
+
+        const data = {
+          access_key: ACCESS_KEY,
+          name: form.name.value,
+          email: form.email.value,
+          perfil: form.perfil.value,
+          message: form.message.value
+        };
+
+        try {
+          const res = await fetch(WEB3FORMS_URL, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json", Accept: "application/json" }
+          });
+
+          if (res.ok) {
+            status.textContent = '¡Gracias! Hemos recibido tu mensaje.';
+            form.reset();
+          } else {
+            status.textContent = 'Error al enviar. Intenta más tarde.';
+          }
+        } catch (err) {
+          status.textContent = 'Error de conexión. Intenta de nuevo.';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
