@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VisionScore AI - Ecosistema de Pádel con IA</title>
+  <title>VisionScore AI — Ecosistema de Pádel con IA</title>
   <meta name="description" content="VisionScore AI: ecosistema integral para pádel con marcador por visión artificial, estadísticas en tiempo real, videocorrecciones, reservas y dimensión social." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,57 +25,46 @@
     html,body{height:100%}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text); background: radial-gradient(1200px 600px at 10% -10%, rgba(0,178,255,0.25), transparent 60%),
-                         radial-gradient(1000px 500px at 110% 10%, rgba(0,229,168,0.18), transparent 50%),
-                         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      margin:0; font-family:'Inter',sans-serif;
+      color:var(--text); background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       letter-spacing: 0.1px;
     }
-    .container{width:100%; max-width:1080px; margin:0 auto; padding: 0 20px}
-    header{position:sticky; top:0; backdrop-filter: blur(8px); background: rgba(10,15,31, 0.55); border-bottom:1px solid var(--stroke); z-index: 10}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; letter-spacing:0.4px}
-    .logo{width:28px; height:28px; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--primary)); box-shadow: 0 0 20px rgba(0,178,255,0.35), inset 0 0 12px rgba(0,229,168,0.35)}
-    nav a{color:var(--muted); text-decoration:none; margin-left:18px; font-size:14px}
+    .container{width:100%; max-width:960px; margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; backdrop-filter:blur(8px); background:rgba(10,15,31,0.55); border-bottom:1px solid var(--stroke); z-index:10}
+    .nav{display:flex; justify-content:space-between; align-items:center; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); font-weight:700}
+    .logo{width:24px; height:24px; border-radius:6px; background:linear-gradient(135deg,var(--accent),var(--primary))}
+    nav a{color:var(--muted); text-decoration:none; margin-left:16px; font-size:14px}
     nav a:hover{color:var(--text)}
 
-    .hero{padding: 80px 0 40px}
-    .pill{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--text); background:rgba(255,255,255,0.06); padding:6px 10px; border:1px solid var(--stroke); border-radius:999px}
-    .pill .dot{width:8px; height:8px; border-radius:50%; background: radial-gradient(circle at 30% 30%, var(--primary), var(--accent)); box-shadow: 0 0 10px rgba(0,229,168,0.7)}
-    h1{font-size: clamp(36px, 5vw, 56px); line-height:1.05; margin:18px 0}
-    .lead{font-size: clamp(16px, 2.3vw, 20px); color: var(--muted); max-width: 720px}
+    section{padding:100px 0}
+    h1{font-size:clamp(36px,5vw,52px); line-height:1.1; margin:24px 0}
+    h2{font-size:28px; margin:0 0 20px}
+    .lead{font-size:18px; color:var(--muted); max-width:700px}
 
-    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
-    .btn{appearance:none; border:none; cursor:pointer; font-weight:600; padding:12px 16px; border-radius:12px; transition: transform .15s ease, box-shadow .15s ease, background .3s ease; text-decoration:none; display:inline-block}
-    .btn.primary{color:#001217; background: linear-gradient(135deg, var(--primary), var(--accent)); box-shadow: 0 8px 20px rgba(0,178,255,0.35)}
-    .btn.primary:hover{transform: translateY(-2px)}
-    .btn.ghost{color:var(--text); background: transparent; border:1px solid var(--stroke)}
-    .btn.ghost:hover{background: rgba(255,255,255,0.05)}
+    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:32px}
+    .btn{padding:14px 20px; border-radius:12px; font-weight:600; border:none; cursor:pointer; text-decoration:none; transition:.2s}
+    .btn.primary{background:linear-gradient(135deg,var(--primary),var(--accent)); color:#001217}
+    .btn.primary:hover{transform:translateY(-2px)}
+    .btn.ghost{background:transparent; border:1px solid var(--stroke); color:var(--text)}
+    .btn.ghost:hover{background:rgba(255,255,255,0.05)}
 
-    .card-grid{display:grid; grid-template-columns: 1fr; gap:14px; margin:36px 0 20px}
-    @media (min-width: 720px){ .card-grid{grid-template-columns: repeat(3, 1fr);} }
-    .card{background:var(--card); border:1px solid var(--stroke); border-radius: var(--radius); padding:18px; box-shadow: var(--shadow)}
+    .card-grid{display:grid; gap:20px}
+    @media(min-width:720px){.card-grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card); border:1px solid var(--stroke); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
     .card h3{margin:10px 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted); font-size:14px}
-    .icon{width:28px; height:28px; display:inline-block; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--primary)); box-shadow: inset 0 0 10px rgba(255,255,255,0.25)}
 
-    .cta{margin: 30px 0 70px; padding: 20px; background: linear-gradient(135deg, rgba(0,178,255,0.12), rgba(0,229,168,0.12)); border:1px dashed rgba(255,255,255,0.18); border-radius: var(--radius)}
-
-    footer{border-top:1px solid var(--stroke); padding:24px 0; color: var(--muted)}
-    footer a{color:var(--muted); text-decoration:none}
-
-    ::selection{background: rgba(0,229,168,0.25)}
-    .glow{position:absolute; inset: -60px -20px auto auto; width: 180px; height:180px; border-radius:50%; filter: blur(40px); background: radial-gradient(circle, rgba(0,229,168,0.6), transparent 60%)}
+    footer{border-top:1px solid var(--stroke); padding:40px 0; color:var(--muted); text-align:center}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <a class="brand" href="#inicio">
-        <span class="logo" aria-hidden="true"></span>
-        <span>VisionScore AI</span>
+        <span class="logo"></span> VisionScore AI
       </a>
-      <nav aria-label="Principal">
+      <nav>
         <a href="#producto">Producto</a>
         <a href="#como-funciona">Cómo funciona</a>
         <a href="#clubes">Clubes</a>
@@ -86,116 +75,60 @@
   </header>
 
   <main class="container">
-    <section class="hero" id="inicio">
-      <span class="pill"><span class="dot" aria-hidden="true"></span> Ecosistema de pádel con IA</span>
+    <section id="inicio">
       <h1>Todo tu pádel, medido y mejorado</h1>
-      <p class="lead">Un ecosistema tecnológico integral que combina marcador inteligente por visión artificial, estadísticas avanzadas, videocorrecciones automáticas y conexión jugadores-clubes en una sola plataforma.</p>
+      <p class="lead">Ecosistema integral con marcador inteligente, estadísticas avanzadas, videocorrecciones y conexión social en una única plataforma.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Me%20interesa%20el%20piloto%20VisionScore%20AI&body=Hola%2C%20quiero%20informaci%C3%B3n%20del%20programa%20piloto.">Únete al piloto</a>
+        <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Me%20interesa%20VisionScore%20AI">Únete al piloto</a>
         <a class="btn ghost" href="#como-funciona">Ver cómo funciona</a>
       </div>
-      <div class="actions" style="margin-top:12px">
-        <a class="btn ghost" href="https://github.com/titoih/visionscore" target="_blank" rel="noopener">Repositorio en GitHub</a>
-        <a class="btn ghost" href="https://titoih.github.io/visionscore/" target="_blank" rel="noopener">Ver demo</a>
-      </div>
     </section>
 
-    <section id="producto" aria-labelledby="t-producto">
-      <div class="card-grid" style="grid-template-columns: 1fr;">
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3 id="t-producto">Marcador con IA</h3>
-          <p>La cámara detecta puntos y resultados automáticamente con visión artificial, reduce errores humanos y aporta precisión en tiempo real.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3>Estadísticas avanzadas</h3>
-          <p>Métricas de golpes, errores, potencia, desplazamiento y rendimiento -individual o en pareja- accesibles desde cualquier dispositivo.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3>Videocorrecciones</h3>
-          <p>Los errores detectados se convierten en clips automáticos que se envían al jugador para revisar, aprender y entrenar mejor.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3>Conexión jugadores-clubes</h3>
-          <p>Plataforma integrada para reservas, ligas y comunidad que fideliza a tus jugadores y simplifica la gestión del club.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3>Dimensión social</h3>
-          <p>Generación automática de mejores puntos, clips y fotos listos para compartir en redes, amplificando la visibilidad del club.</p>
-        </article>
-      </div>
-      <div class="cta">
-        <p><strong>Propuesta de valor:</strong> Para clubes: diferenciación, fidelización, nuevas altas y nuevas vías de ingresos. Para jugadores: estadísticas profesionales, análisis personalizado, autoentrenamiento, conexión con la comunidad y experiencia social mejorada.</p>
-      </div>
-    </section>
-
-    <section id="como-funciona" aria-labelledby="t-flujo">
-      <h2 id="t-flujo" style="margin:0 0 8px">Cómo funciona</h2>
+    <section id="producto">
       <div class="card-grid">
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3>1) Instala</h3>
-          <p>Conecta la cámara y el marcador inteligente en la pista. Configura el club en minutos.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3>2) Juega</h3>
-          <p>La IA detecta los puntos y registra estadísticas en tiempo real sin intervención humana.</p>
-        </article>
-        <article class="card">
-          <span class="icon" aria-hidden="true"></span>
-          <h3>3) Analiza y comparte</h3>
-          <p>Recibe videocorrecciones y mejores clips listos para redes. Toma decisiones con datos.</p>
-        </article>
+        <article class="card"><h3>Marcador con IA</h3><p>Visión artificial que detecta automáticamente los puntos, reduciendo errores y aportando precisión.</p></article>
+        <article class="card"><h3>Estadísticas avanzadas</h3><p>Datos en tiempo real sobre golpes, errores, potencia, desplazamiento y rendimiento.</p></article>
+        <article class="card"><h3>Videocorrecciones</h3><p>Clips automáticos con errores detectados para revisión y mejora técnica.</p></article>
+        <article class="card"><h3>Conexión jugadores-clubes</h3><p>Reservas, comunidad y fidelización integradas en una sola plataforma.</p></article>
+        <article class="card"><h3>Dimensión social</h3><p>Clips y fotos listos para redes, aumentando la visibilidad de jugadores y clubes.</p></article>
       </div>
     </section>
 
-    <section id="clubes" aria-labelledby="t-clubes">
-      <h2 id="t-clubes" style="margin:0 0 8px">Para clubes</h2>
-      <p class="lead" style="margin:0 0 14px">Diferenciación competitiva, fidelización, nuevas altas y nuevas vías de ingresos con contenido social automático.</p>
+    <section id="como-funciona">
+      <h2>Cómo funciona</h2>
+      <div class="card-grid">
+        <article class="card"><h3>1) Instala</h3><p>Coloca el sistema en la pista y configúralo en minutos.</p></article>
+        <article class="card"><h3>2) Juega</h3><p>La IA registra puntos y estadísticas en tiempo real sin intervención humana.</p></article>
+        <article class="card"><h3>3) Analiza y comparte</h3><p>Accede a videocorrecciones y clips listos para redes sociales.</p></article>
+      </div>
+    </section>
+
+    <section id="clubes">
+      <h2>Para clubes</h2>
+      <p class="lead">Diferenciación, fidelización, atracción de nuevos jugadores y nuevas vías de ingresos.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Quiero%20VisionScore%20AI%20en%20mi%20club">Solicitar demo</a>
-        <a class="btn ghost" href="#mercado">Ver datos de mercado</a>
       </div>
     </section>
 
-    <section id="jugadores" aria-labelledby="t-jugadores">
-      <h2 id="t-jugadores" style="margin:0 0 8px">Para jugadores</h2>
-      <p class="lead" style="margin:0 0 14px">Estadísticas profesionales, análisis personalizado, autoentrenamiento y comunidad para mejorar cada partido.</p>
+    <section id="jugadores">
+      <h2>Para jugadores</h2>
+      <p class="lead">Estadísticas profesionales, autoentrenamiento, comunidad y experiencia social mejorada.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Alta%20como%20jugador%20piloto">Unirme al piloto</a>
-        <a class="btn ghost" href="#como-funciona">Cómo funciona</a>
+        <a class="btn primary" href="mailto:hola@visionscore.ai?subject=Alta%20jugador%20piloto">Unirme al piloto</a>
       </div>
     </section>
-<section id="mercado" aria-labelledby="t-mercado">
-      <h2 id="t-mercado" style="margin:0 0 8px">Mercado en expansión</h2>
-      <p class="lead" style="margin:0 0 20px">Más de 25 millones de jugadores en el mundo y más de 66 000 pistas previstas en Europa para 2025. Una tecnología escalable y exportable para transformar cómo se practica, analiza y comparte el pádel.</p>
-    </section>
 
-    <section id="equipo" aria-labelledby="t-equipo" style="position:relative">
-      <div class="glow" aria-hidden="true"></div>
-      <h2 id="t-equipo" style="margin:0 0 8px">Equipo</h2>
-      <p class="lead" style="margin:0 0 20px">Ingeniería, deporte y diseño: construimos productos usables que aportan ventaja competitiva real en pista.</p>
-    </section>
-
-    <section id="contacto" aria-labelledby="t-contacto">
-      <h2 id="t-contacto" style="margin:0 0 8px">Contacto</h2>
-      <p>¿Club o jugador interesado en el programa piloto? Escríbenos a <a href="mailto:hola@visionscore.ai">hola@visionscore.ai</a> o visita el <a href="https://github.com/titoih/visionscore" target="_blank" rel="noopener">repositorio</a>.</p>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Escríbenos a <a href="mailto:hola@visionscore.ai">hola@visionscore.ai</a> o visita el <a href="https://github.com/titoih/visionscore" target="_blank">repositorio</a>.</p>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <small>© <span id="y"></span> VisionScore AI - Hecho con 💙 desde la tecnología y el deporte.</small>
-    </div>
+    <small>© <span id="y"></span> VisionScore AI</small>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
