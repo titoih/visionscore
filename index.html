@@ -3,83 +3,58 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VisionScore AI — Tecnología que acelera tu juego</title>
-  <meta name="description" content="Landing minimalista para VisionScore AI: tecnología deportiva y análisis de rendimiento con inteligencia artificial." />
+  <title>VisionScore AI — Ecosistema de Pádel con IA</title>
+  <meta name="description" content="VisionScore AI: ecosistema integral para pádel con marcador por visión artificial, estadísticas en tiempo real, videocorrecciones, reservas y dimensión social." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Favicon inline (no hace falta archivo extra) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300B2FF'/%3E%3Cstop offset='1' stop-color='%2300E5A8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='28' fill='%230a0f1f'/%3E%3Cpath d='M26 64c0-21 17-38 38-38s38 17 38 38-17 38-38 38S26 85 26 64zm58-6-30 18 12-28 18 10z' fill='url(%23g)'/%3E%3C/svg%3E" />
   <style>
     :root{
-      --bg: #0a0f1f;         /* azul noche */
-      --bg-2: #0d1326;       /* más profundo */
-      --text: #E6F1FF;       /* texto principal */
-      --muted: #9db2ce;      /* texto secundario */
-      --primary: #00E5A8;    /* verde turquesa deportivo */
-      --accent: #00B2FF;     /* azul eléctrico tech */
+      --bg: #0a0f1f;
+      --bg-2: #0d1326;
+      --text: #E6F1FF;
+      --muted: #9db2ce;
+      --primary: #00E5A8;
+      --accent: #00B2FF;
       --card: rgba(255,255,255,0.06);
       --stroke: rgba(255,255,255,0.12);
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       --radius: 18px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text); background: radial-gradient(1200px 600px at 10% -10%, rgba(0,178,255,0.25), transparent 60%),
-                         radial-gradient(1000px 500px at 110% 10%, rgba(0,229,168,0.18), transparent 50%),
-                         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-      letter-spacing: 0.1px;
+      color:var(--text); background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     }
-    .container{width:100%; max-width:1080px; margin:0 auto; padding: 0 20px}
-    header{position:sticky; top:0; backdrop-filter: blur(8px); background: rgba(10,15,31, 0.55); border-bottom:1px solid var(--stroke); z-index: 10}
+    .container{max-width:1080px; margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; backdrop-filter: blur(8px); background: rgba(10,15,31,0.55); border-bottom:1px solid var(--stroke)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; letter-spacing:0.4px}
-    .logo{width:28px; height:28px; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--primary)); box-shadow: 0 0 20px rgba(0,178,255,0.35), inset 0 0 12px rgba(0,229,168,0.35)}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700}
+    .logo{width:28px; height:28px; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--primary))}
     nav a{color:var(--muted); text-decoration:none; margin-left:18px; font-size:14px}
     nav a:hover{color:var(--text)}
-
-    .hero{padding: 80px 0 40px}
-    .pill{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--text); background:rgba(255,255,255,0.06); padding:6px 10px; border:1px solid var(--stroke); border-radius:999px}
-    .pill .dot{width:8px; height:8px; border-radius:50%; background: radial-gradient(circle at 30% 30%, var(--primary), var(--accent)); box-shadow: 0 0 10px rgba(0,229,168,0.7)}
+    .hero{padding:80px 0 40px}
     h1{font-size: clamp(36px, 5vw, 56px); line-height:1.05; margin:18px 0}
     .lead{font-size: clamp(16px, 2.3vw, 20px); color: var(--muted); max-width: 720px}
-
-    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
-    .btn{appearance:none; border:none; cursor:pointer; font-weight:600; padding:12px 16px; border-radius:12px; transition: transform .15s ease, box-shadow .15s ease, background .3s ease}
-    .btn.primary{color:#001217; background: linear-gradient(135deg, var(--primary), var(--accent)); box-shadow: 0 8px 20px rgba(0,178,255,0.35)}
-    .btn.primary:hover{transform: translateY(-2px)}
-    .btn.ghost{color:var(--text); background: transparent; border:1px solid var(--stroke)}
-    .btn.ghost:hover{background: rgba(255,255,255,0.05)}
-
     .card-grid{display:grid; grid-template-columns: 1fr; gap:14px; margin:36px 0 20px}
     @media (min-width: 720px){ .card-grid{grid-template-columns: repeat(3, 1fr);} }
     .card{background:var(--card); border:1px solid var(--stroke); border-radius: var(--radius); padding:18px; box-shadow: var(--shadow)}
     .card h3{margin:10px 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted); font-size:14px}
-    .icon{width:28px; height:28px; display:inline-block; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--primary)); box-shadow: inset 0 0 10px rgba(255,255,255,0.25)}
-
-    .cta{margin: 30px 0 70px; padding: 20px; background: linear-gradient(135deg, rgba(0,178,255,0.12), rgba(0,229,168,0.12)); border:1px dashed rgba(255,255,255,0.18); border-radius: var(--radius)}
-
     footer{border-top:1px solid var(--stroke); padding:24px 0; color: var(--muted)}
-    footer a{color:var(--muted); text-decoration:none}
-
-    /* pequeños detalles */
-    ::selection{background: rgba(0,229,168,0.25)}
-    .glow{position:absolute; inset: -60px -20px auto auto; width: 180px; height:180px; border-radius:50%; filter: blur(40px); background: radial-gradient(circle, rgba(0,229,168,0.6), transparent 60%)}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <a class="brand" href="#">
-        <span class="logo" aria-hidden="true"></span>
+        <span class="logo"></span>
         <span>VisionScore&nbsp;AI</span>
       </a>
-      <nav aria-label="Principal">
-        <a href="#producto">Producto</a>
-        <a href="#equipo">Equipo</a>
+      <nav>
+        <a href="#solucion">Solución</a>
+        <a href="#valor">Valor</a>
+        <a href="#mercado">Mercado</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -87,58 +62,72 @@
 
   <main class="container">
     <section class="hero" id="inicio">
-      <span class="pill"><span class="dot" aria-hidden="true"></span> Próximamente</span>
-      <h1>Tecnología que acelera tu juego</h1>
-      <p class="lead">Análisis de rendimiento, métricas en tiempo real e insights accionables, diseñados para deportistas y equipos que quieren ganar con ayuda de la IA.</p>
+      <span class="pill"><span class="dot" aria-hidden="true"></span> Ecosistema de pádel con IA</span>
+      <h1>Todo tu pádel, medido y mejorado</h1>
+      <p class="lead">Un ecosistema tecnológico integral que combina marcador inteligente por visión artificial, estadísticas avanzadas, videocorrecciones automáticas y conexión jugadores‑clubes en una sola plataforma.</p>
       <div class="actions">
-        <a class="btn primary" href="https://github.com/tu-usuario/visionscore" target="_blank" rel="noopener">Ver repositorio en GitHub</a>
-        <a class="btn ghost" href="#contacto">Quiero saber más</a>
+        <a class="btn primary" href="#contacto">Únete al piloto</a>
+        <a class="btn ghost" href="#producto">Ver cómo funciona</a>
       </div>
     </section>
 
     <section id="producto" aria-labelledby="t-producto">
-      <div class="card-grid">
+      <div class="card-grid" style="grid-template-columns: 1fr;">
         <article class="card">
           <span class="icon" aria-hidden="true"></span>
-          <h3 id="t-producto">Análisis en tiempo real</h3>
-          <p>Capta datos desde wearables o vídeo y conviértelos en información clara, en segundos.</p>
+          <h3 id="t-producto">Marcador con IA</h3>
+          <p>La cámara detecta puntos y resultados automáticamente con visión artificial, reduce errores humanos y aporta precisión en tiempo real.</p>
         </article>
         <article class="card">
           <span class="icon" aria-hidden="true"></span>
-          <h3>Paneles de rendimiento</h3>
-          <p>Indicadores clave, alertas y objetivos semanales en un dashboard limpio y rápido.</p>
+          <h3>Estadísticas avanzadas</h3>
+          <p>Métricas de golpes, errores, potencia, desplazamiento y rendimiento —individual o en pareja— accesibles desde cualquier dispositivo.</p>
         </article>
         <article class="card">
           <span class="icon" aria-hidden="true"></span>
-          <h3>Integraciones sencillas</h3>
-          <p>Conecta fuentes de datos populares sin fricción para empezar a medir ya.</p>
+          <h3>Videocorrecciones</h3>
+          <p>Los errores detectados se convierten en clips automáticos que se envían al jugador para revisar, aprender y entrenar mejor.</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"></span>
+          <h3>Conexión jugadores‑clubes</h3>
+          <p>Plataforma integrada tipo reservas, ligas y comunidad que fideliza a tus jugadores y simplifica la gestión del club.</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"></span>
+          <h3>Dimensión social</h3>
+          <p>Generación automática de mejores puntos, clips y fotos listos para compartir en redes, amplificando la visibilidad del club.</p>
         </article>
       </div>
       <div class="cta">
-        <p><strong>¿Eres early adopter?</strong> Buscamos equipos para el programa piloto. Escríbenos y te avisamos cuando abramos acceso.</p>
+        <p><strong>Propuesta de valor:</strong> Para clubes: diferenciación, fidelización, nuevas altas y nuevas vías de ingresos. Para jugadores: estadísticas profesionales, análisis personalizado, autoentrenamiento, conexión con la comunidad y experiencia social mejorada.</p>
       </div>
+    </section>
+
+    <section id="mercado" aria-labelledby="t-mercado">
+      <h2 id="t-mercado" style="margin:0 0 8px">Mercado en expansión</h2>
+      <p class="lead" style="margin:0 0 20px">Más de 25 millones de jugadores en el mundo y más de 66 000 pistas previstas en Europa para 2025. Una tecnología escalable y exportable para transformar cómo se practica, analiza y comparte el pádel.</p>
     </section>
 
     <section id="equipo" aria-labelledby="t-equipo" style="position:relative">
       <div class="glow" aria-hidden="true"></div>
       <h2 id="t-equipo" style="margin:0 0 8px">Equipo</h2>
-      <p class="lead" style="margin:0 0 20px">Ingeniería, deporte y diseño. Creamos productos usables que aportan ventaja competitiva.</p>
+      <p class="lead" style="margin:0 0 20px">Ingeniería, deporte y diseño: construimos productos usables que aportan ventaja competitiva real en pista.</p>
     </section>
 
     <section id="contacto" aria-labelledby="t-contacto">
       <h2 id="t-contacto" style="margin:0 0 8px">Contacto</h2>
-      <p>¿Te interesa VisionScore AI? <a href="mailto:hola@visionscore.ai">hola@visionscore.ai</a></p>
+      <p>¿Club o jugador interesado en el programa piloto? Escríbenos a <a href="mailto:hola@visionscore.ai">hola@visionscore.ai</a></p>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <small>© <span id="y"></span> VisionScore AI — Hecho con 💙 desde la tecnología y el deporte.</small>
+      <small>© <span id="y"></span> VisionScore AI — Transformando el pádel con inteligencia artificial.</small>
     </div>
   </footer>
 
   <script>
-    // año automático en el pie
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
